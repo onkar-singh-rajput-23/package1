@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct file1: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+public struct file1: View {
+    public init() {
+    }
+    public var body: some View {
+        Text("hello file one this is file 1" )
     }
 }
 
