@@ -36,6 +36,7 @@ let package = Package(
             resources: [
                 .process("Assets.xcassets")
             ]
+             sources: ["file1.swift"]
         ),
         .testTarget(
             name: "PackageTests",
