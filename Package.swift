@@ -3,55 +3,35 @@ import PackageDescription
 
 let package = Package(
     name: "Package",
-    defaultLocalization: "en",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v15)
     ],
     products: [
-        .iOSApplication(
-            name: "PackageApp",
-            targets: ["PackageApp"],
-            bundleIdentifier: "com.onkarrajput.package",
-            teamIdentifier: "YOURTEAMID",
-            displayVersion: "1.0",
-            bundleVersion: "1",
-            appIcon: .asset("AppIcon"),
-            accentColor: .asset("AccentColor"),
-            supportedDeviceFamilies: [
-                .phone,
-                .pad
-            ],
-            supportedInterfaceOrientations: [
-                .portrait,
-                .portraitUpsideDown(.when(deviceFamilies: [.pad])),
-                .landscapeLeft,
-                .landscapeRight
-            ]
+        .library(
+            name: "Package",
+            targets: ["Package"]
         )
     ],
     targets: [
-        .executableTarget(
-            name: "PackageApp",
-            path: "Package",
+        .target(
+            name: "Package",
+            path: "Package/Sources",
+            exclude: [],
             resources: [
-                .process("Assets.xcassets")
+                .process("../Resources")
             ]
-             sources: ["file1.swift"]
         ),
         .testTarget(
             name: "PackageTests",
-            dependencies: [
-                .target(name: "PackageApp")
-            ],
+            dependencies: ["Package"],
             path: "PackageTests"
         ),
         .testTarget(
             name: "PackageUITests",
-            dependencies: [
-                .target(name: "PackageApp")
-            ],
+            dependencies: ["Package"],
             path: "PackageUITests"
         )
-    ]
+    ],
+    swiftLanguageVersions: [.v5]
 )
 

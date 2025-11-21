@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
+@available(iOS 13.0, macOS 12.0, tvOS 13.0, watchOS 6.0, *)
+public struct ContentView: View {
+    public init() {}
+
+    public var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
@@ -17,8 +20,4 @@ struct ContentView: View {
         }
         .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }
